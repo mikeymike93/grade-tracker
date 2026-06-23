@@ -6,6 +6,7 @@ int main()
 {
     string studentName;
     string className;
+    string status;
 
     double test1;
     double test2;
@@ -53,6 +54,15 @@ int main()
         letterGrade = 'F';
     }
 
+    if (average >= 60)
+    {
+        status = "Pass";
+    }
+    else
+    {
+        status = "Fail";
+    }
+
     cout<<endl;
     cout<<"Student: "<<studentName<<endl;
     cout<<"Class: "<<className<<endl;
@@ -62,5 +72,6 @@ int main()
     cout<<"Final Exam: "<<finalExam<<endl;
     cout<<"Average Score: "<<average<<"%"<<endl;
     cout<<"Letter Grade: "<<letterGrade<<endl;
+    cout<<"Status: "<<status<<endl;
     return 0;
 }
