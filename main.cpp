@@ -2,6 +2,10 @@
 #include <string>
 using namespace std;
 
+double calculateAverage(double test1, double test2, double test3, double finalExam)
+{
+    return (test1 + test2 + test3 + finalExam) / 4;
+}
 int main()
 {
     string studentName;
@@ -32,7 +36,8 @@ int main()
     cout<<"Enter the score for the Final Exam: ";
     cin>>finalExam;
 
-    average = (test1 + test2 + test3 + finalExam) / 4;
+    average = calculateAverage(test1, test2, test3, finalExam);
+    
     if (average >= 90)
     {
         letterGrade = 'A';
