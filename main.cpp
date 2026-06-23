@@ -12,6 +12,7 @@ int main()
     double test3;
     double finalExam;
     double average;
+    char letterGrade;
 
     cout<<"Grade Tracker"<<endl;
 
@@ -31,6 +32,26 @@ int main()
     cin>>finalExam;
 
     average = (test1 + test2 + test3 + finalExam) / 4;
+    if (average >= 90)
+    {
+        letterGrade = 'A';
+    }
+    else if (average >= 80)
+    {
+        letterGrade = 'B';
+    }
+    else if (average >= 70)
+    {
+        letterGrade = 'C';
+    }
+    else if (average >= 60)
+    {
+        letterGrade = 'D';
+    }
+    else
+    {
+        letterGrade = 'F';
+    }
 
     cout<<endl;
     cout<<"Student: "<<studentName<<endl;
@@ -40,6 +61,6 @@ int main()
     cout<<"Test 3: "<<test3<<endl;
     cout<<"Final Exam: "<<finalExam<<endl;
     cout<<"Average Score: "<<average<<"%"<<endl;
-
+    cout<<"Letter Grade: "<<letterGrade<<endl;
     return 0;
 }
