@@ -11,6 +11,7 @@ int main()
     double test2;
     double test3;
     double finalExam;
+    double average;
 
     cout<<"Grade Tracker"<<endl;
 
@@ -29,6 +30,8 @@ int main()
     cout<<"Enter the score for the Final Exam: ";
     cin>>finalExam;
 
+    average = (test1 + test2 + test3 + finalExam) / 4;
+
     cout<<endl;
     cout<<"Student: "<<studentName<<endl;
     cout<<"Class: "<<className<<endl;
@@ -36,6 +39,7 @@ int main()
     cout<<"Test 2: "<<test2<<endl;
     cout<<"Test 3: "<<test3<<endl;
     cout<<"Final Exam: "<<finalExam<<endl;
+    cout<<"Average Score: "<<average<<"%"<<endl;
 
     return 0;
 }
