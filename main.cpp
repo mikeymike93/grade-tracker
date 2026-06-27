@@ -29,6 +29,17 @@ char getLetterGrade(double average)
         return 'F';
     }
 }
+string getPassFailStatus(double average)
+{
+    if (average >= 60)
+    {
+        return "Passed";
+    }
+    else
+    {
+        return "Failed";
+    }
+}
 int main()
 {
     string studentName;
@@ -62,6 +73,8 @@ int main()
     average = calculateAverage(test1, test2, test3, finalExam);
 
     letterGrade = getLetterGrade(average);
+
+    status = getPassFailStatus(average);
 
     cout<<endl;
     cout<<"Student: "<<studentName<<endl;
