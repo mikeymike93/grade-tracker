@@ -40,6 +40,20 @@ string getPassFailStatus(double average)
         return "Failed";
     }
 }
+double getValidScore(string prompt)
+{
+    double score;
+
+    cout<<prompt;
+    cin>>score;
+
+    while(score < 0 || score > 100)
+    {
+        cout<<"Invalid score. Please enter a score between 0 and 100: ";
+        cin>>score;
+    }
+    return score;
+}
 int main()
 {
     string studentName;
@@ -61,14 +75,10 @@ int main()
     cout<<"Enter the class name: ";
     getline(cin, className);
 
-    cout<<"Enter the score for Test 1: ";
-    cin>>test1;
-    cout<<"Enter the score for Test 2: ";
-    cin>>test2;
-    cout<<"Enter the score for Test 3: ";
-    cin>>test3;
-    cout<<"Enter the score for the Final Exam: ";
-    cin>>finalExam;
+    test1 = getValidScore("Enter Test 1 score: ");
+    test2 = getValidScore("Enter Test 2 score: ");
+    test3 = getValidScore("Enter Test 3 score: ");
+    finalExam = getValidScore("Enter Final Exam score: ");
 
     average = calculateAverage(test1, test2, test3, finalExam);
 
