@@ -6,6 +6,29 @@ double calculateAverage(double test1, double test2, double test3, double finalEx
 {
     return (test1 + test2 + test3 + finalExam) / 4;
 }
+char getLetterGrade(double average)
+{
+    if (average >= 90)
+    {
+        return 'A';
+    }
+    else if (average >= 80)
+    {
+        return 'B';
+    }
+    else if (average >= 70)
+    {
+        return 'C';
+    }
+    else if (average >= 60)
+    {
+        return 'D';
+    }
+    else
+    {
+        return 'F';
+    }
+}
 int main()
 {
     string studentName;
@@ -37,36 +60,8 @@ int main()
     cin>>finalExam;
 
     average = calculateAverage(test1, test2, test3, finalExam);
-    
-    if (average >= 90)
-    {
-        letterGrade = 'A';
-    }
-    else if (average >= 80)
-    {
-        letterGrade = 'B';
-    }
-    else if (average >= 70)
-    {
-        letterGrade = 'C';
-    }
-    else if (average >= 60)
-    {
-        letterGrade = 'D';
-    }
-    else
-    {
-        letterGrade = 'F';
-    }
 
-    if (average >= 60)
-    {
-        status = "Pass";
-    }
-    else
-    {
-        status = "Fail";
-    }
+    letterGrade = getLetterGrade(average);
 
     cout<<endl;
     cout<<"Student: "<<studentName<<endl;
