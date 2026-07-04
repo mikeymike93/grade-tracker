@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 
 double calculateAverage(double test1, double test2, double test3, double finalExam)
@@ -54,6 +55,22 @@ double getValidScore(string prompt)
     }
     return score;
 }
+
+    void saveResultToFile(string studentName, string className, double average, char letterGrade, string status)
+{
+    ofstream outputFile;
+
+    outputFile.open("grades.txt", ios::app);
+
+    outputFile << "Student: " << studentName << endl;
+    outputFile << "Class: " << className << endl;
+    outputFile << "Average: " << average << "%" << endl;
+    outputFile << "Letter Grade: " << letterGrade << endl;
+    outputFile << "Status: " << status << endl;
+    outputFile << "------------------------" << endl;
+
+    outputFile.close();
+}
 int main()
 {
     int choice;
@@ -104,6 +121,9 @@ int main()
         cout<<"Average Score: "<<average<<endl;
         cout<<"Letter Grade: "<<letterGrade<<endl;
         cout<<"Status: "<<status<<endl;
+        
+        saveResultToFile(studentName, className, average, letterGrade, status);
+        cout << "Result saved to grades.txt" << endl;
     }
     else if(choice==2)
     {
