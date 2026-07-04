@@ -56,6 +56,8 @@ double getValidScore(string prompt)
 }
 int main()
 {
+    int choice;
+
     string studentName;
     string className;
     string status;
@@ -67,34 +69,51 @@ int main()
     double average;
     char letterGrade;
 
-    cout<<"Grade Tracker"<<endl;
+   do
+   {
+    cout<<"Grade Tracker Menu"<<endl;
+    cout<<"1. Enter Student Grades"<<endl;
+    cout<<"2. Exit"<<endl;
+    cout<<"choose an option: ";
+    cin>>choice;
+    cin.ignore(); // Ignore the newline character left in the input buffer
 
-    cout<<"Enter the student's name: ";
-    getline(cin, studentName);
+    if(choice==1)
+    {
+        cout<<"Enter Student Name: ";
+        getline(cin, studentName);
 
-    cout<<"Enter the class name: ";
-    getline(cin, className);
+        cout<<"Enter Class Name: ";
+        getline(cin, className);
 
-    test1 = getValidScore("Enter Test 1 score: ");
-    test2 = getValidScore("Enter Test 2 score: ");
-    test3 = getValidScore("Enter Test 3 score: ");
-    finalExam = getValidScore("Enter Final Exam score: ");
+        test1 = getValidScore("Enter Test 1 Score (0-100): ");
+        test2 = getValidScore("Enter Test 2 Score (0-100): ");
+        test3 = getValidScore("Enter Test 3 Score (0-100): ");
+        finalExam = getValidScore("Enter Final Exam Score (0-100): ");
 
-    average = calculateAverage(test1, test2, test3, finalExam);
+        average = calculateAverage(test1, test2, test3, finalExam);
+        letterGrade = getLetterGrade(average);
+        status = getPassFailStatus(average);
 
-    letterGrade = getLetterGrade(average);
-
-    status = getPassFailStatus(average);
-
-    cout<<endl;
-    cout<<"Student: "<<studentName<<endl;
-    cout<<"Class: "<<className<<endl;
-    cout<<"Test 1: "<<test1<<endl;
-    cout<<"Test 2: "<<test2<<endl;
-    cout<<"Test 3: "<<test3<<endl;
-    cout<<"Final Exam: "<<finalExam<<endl;
-    cout<<"Average Score: "<<average<<"%"<<endl;
-    cout<<"Letter Grade: "<<letterGrade<<endl;
-    cout<<"Status: "<<status<<endl;
+        cout<<"\nStudent Name: "<<studentName<<endl;
+        cout<<"Class Name: "<<className<<endl;
+        cout<<"Test 1 Score: "<<test1<<endl;
+        cout<<"Test 2 Score: "<<test2<<endl;
+        cout<<"Test 3 Score: "<<test3<<endl;
+        cout<<"Final Exam Score: "<<finalExam<<endl;
+        cout<<"Average Score: "<<average<<endl;
+        cout<<"Letter Grade: "<<letterGrade<<endl;
+        cout<<"Status: "<<status<<endl;
+    }
+    else if(choice==2)
+    {
+        cout<<"Goodbye!"<<endl;
+    }
+    else
+    {
+        cout<<"Invalid option."<<endl;
+    }
+   }
+   while (choice!= 2);
     return 0;
 }
